@@ -130,11 +130,11 @@ public class FunctionDecl extends SubprogramDecl {
                     
         // sua implementação aqui
         setRelativeAddresses();
-        FunctionDecl functionDecl = new FunctionDecl(getIdToken());
+        //FunctionDecl functionDecl = new FunctionDecl(getIdToken());
         emitLabel( getSubprogramLabel() );
         emit( "PROC " + getVarLength() );
         getStatementPart().emit();
-        emit( "RET " + getParamLength() );
+        
         // </editor-fold>
         
     }

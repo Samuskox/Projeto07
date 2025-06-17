@@ -128,9 +128,23 @@ public class Variable extends Expression {
         // <editor-fold defaultstate="collapsed" desc="Implementação">
                     
         // sua implementação aqui
+        Type declType = decl.getType();
+        
+        for (Expression expr : indexExprs) {
+            ArrayType arrayType = (ArrayType) declType;
+            expr.emit();
+            
+            if(arrayType.getElementType() != Type.Boolean){
+                emit( "LDCINT " + arrayType.getElementType().getSize());
+                emit( "MUL" );
+            }
+            
+            emit( "ADD" );
+            declType = arrayType.getElementType();
 
         // </editor-fold>
         
-    }
+        }
     
+    }
 }

@@ -99,14 +99,14 @@ public class ProcedureCallStmt extends Statement {
     public void emit() throws CodeGenException {
         
         // <editor-fold defaultstate="collapsed" desc="Implementação">
-        emit( "ALLOC " + procDecl.getType().getSize() );
+        
         
         // emit code for actual parameters
         for ( Expression expr : actualParams ) {
             expr.emit();
         }
         
-
+        
         emit( "CALL " + procDecl.getSubprogramLabel() );
         // sua implementação aqui
 
