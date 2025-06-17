@@ -100,7 +100,7 @@ public class ProcedureCallStmt extends Statement {
         
         // <editor-fold defaultstate="collapsed" desc="Implementação">
         emit( "ALLOC " + procDecl.getType().getSize() );
-
+        
         // emit code for actual parameters
         for ( Expression expr : actualParams ) {
             expr.emit();
